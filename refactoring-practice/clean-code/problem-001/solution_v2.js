@@ -8,6 +8,14 @@ const DISCOUNT_CONFIG = {
 // 할인이 적용될 ELECTRONICS price
 const DISCOUNT_ELECTRONICS_PRICE = 100000;
 
+// discountStrategies
+// strategy 패턴을 사용하여 코드는 더욱 간결하고
+// 코드의 확장성을 높였다
+const discountStrategies = {
+  BOOK: ({ isNew }) => (isNew ? DISCOUNT_CONFIG.NEW_BOOK : DISCOUNT_CONFIG.OLD_BOOK),
+  ELECTRONICS: ({ price }) => (price > DISCOUNT_ELECTRONICS_PRICE ? DISCOUNT_CONFIG.EXPENSIVE_ELECTRONICS : 0),
+};
+
 // solution
 const solution = (cartItems, userType) => {
   const totalAmount = getTotalAmount(cartItems);
@@ -26,23 +34,13 @@ const getTotalAmount = (cart) => {
 
 // 할인된 값을 구하는 함수
 const getDiscountAmount = (cart) => {
+  // strategy 패턴을 사용하여 코드는 더욱 간결하고
+  // 코드의 확장성을 높였다
   const totalAmount = getTotalAmount(cart);
   const totalDiscountAmount = cart.reduce((acc, item) => {
-    if (item.type === 'BOOK') {
-      if (item.isNew) {
-        return acc - item.price * DISCOUNT_CONFIG.NEW_BOOK;
-      } else {
-        return acc - item.price * DISCOUNT_CONFIG.OLD_BOOK;
-      }
-    }
-
-    if (item.type === 'ELECTRONICS') {
-      if (item.price > DISCOUNT_ELECTRONICS_PRICE) {
-        return acc - item.price * DISCOUNT_CONFIG.EXPENSIVE_ELECTRONICS;
-      }
-    }
-
-    return 0;
+    const strategy = discountStrategies[item.type];
+    const discountRate = strategy ? strategy(item) : 0;
+    return acc - totalAmount * discountRate;
   }, totalAmount);
 
   return totalAmount - totalDiscountAmount;
