@@ -21,7 +21,7 @@
 
 ## 리팩토링 팁
 
-- [리팩토링 팁](/refactoring-practice//clean-code//README.md)
+- [리팩토링 팁](/refactoring-practice//clean-code//README.MD)
 
 ## 문제 목록
 
