@@ -12,3 +12,20 @@
 1. 매일 꾸준히 학습하기
 2. 배운 내용 체계적으로 정리하기
 3. 실습과 예제를 통한 깊이 있는 이해
+
+---
+
+# 리팩토링 연습 프로젝트
+
+이 프로젝트는 리팩토링 연습을 위한 문제들을 담고 있습니다.
+
+## 리팩토링 팁
+
+- [리팩토링 팁](/refactoring-practice//clean-code//README.MD)
+
+## 문제 목록
+
+- [Problem 001 - 주문 상태 관리 시스템](/refactoring-practice/clean-code/problem-001/README.md)
+- [Problem 002 - 장바구니 시스템](/refactoring-practice/clean-code//problem-002/README.md)
+- [Problem 003 - 리뷰 관리 시스템](/refactoring-practice/clean-code/problem-003/README.md)
+- [Problem 004 - 주문 취소 관리 시스템](/refactoring-practice/clean-code/problem-004/README.md)
