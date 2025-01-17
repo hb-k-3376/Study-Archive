@@ -17,7 +17,7 @@
 
 ## 배운 점
 
-| Strategy Pattern에 대해 배웠다
-| solution_v1에서는 getDiscountAmount 함수안에 복잡한 if-else 를 사용하여 분기 처리를 했지만
-| solution_v2에선 전략 패턴을 사용하여 함수가 더욱 간결해지고 할인 정책이 추가 될때 마다 할인전략 객체에 추가만
-| 하면 된다.
+> Strategy Pattern에 대해 배웠다
+> solution_v1에서는 getDiscountAmount 함수안에 복잡한 if-else 를 사용하여 분기 처리를 했지만
+> solution_v2에선 전략 패턴을 사용하여 함수가 더욱 간결해지고 할인 정책이 추가 될때 마다 할인전략 객체에 추가만
+> 하면 된다.
