@@ -21,11 +21,11 @@
 
 ## 리팩토링 팁
 
-- [리팩토링 팁](/refactoring-practice//clean-code//README.MD)
+- [리팩토링 팁](/refactoring-practice//clean-code//README.md)
 
 ## 문제 목록
 
-- [Problem 001 - 주문 상태 관리 시스템](/refactoring-practice/clean-code/problem-001/README.md)
-- [Problem 002 - 장바구니 시스템](/refactoring-practice/clean-code//problem-002/README.md)
-- [Problem 003 - 리뷰 관리 시스템](/refactoring-practice/clean-code/problem-003/README.md)
-- [Problem 004 - 주문 취소 관리 시스템](/refactoring-practice/clean-code/problem-004/README.md)
+- [Problem 001 - 주문 상태 관리 시스템](/refactoring-practice/clean-code/problem-001/explanation.md)
+- [Problem 002 - 장바구니 시스템](/refactoring-practice/clean-code//problem-002/explanation.md)
+- [Problem 003 - 리뷰 관리 시스템](/refactoring-practice/clean-code/problem-003/explanation.md)
+- [Problem 004 - 주문 취소 관리 시스템](/refactoring-practice/clean-code/problem-004/explanation.md)
