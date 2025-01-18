@@ -23,8 +23,7 @@ study-archive/
     │       └── exercises/
     ├── intermediate/
     │   ├── 01-generics/
-    │   ├── 02-type-inference/
-    │   └── 03-decorators/
+    │   └── 02-type-inference/
     ├── advanced/
     │   ├── 01-utility-types/
     │   ├── 02-mapped-types/

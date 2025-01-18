@@ -1,0 +1,15 @@
+{
+  "name": "typescript-practice",
+  "version": "1.0.0",
+  "description": "이 저장소는 TypeScript 학습을 위한 아카이브입니다. 기초부터 고급 개념까지 단계별로 학습할 수 있도록 구성되어 있습니다.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.9.2"
+  }
+}
