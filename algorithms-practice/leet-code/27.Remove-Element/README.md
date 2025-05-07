@@ -1,21 +1,16 @@
-# 문제 설명: Valid Parentheses
-
 ## 문제 설명
 
-GGiven an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
-
-Consider the number of elements in nums which are not equal to val be k, to get accepted, you need to do the following things:
-
-Change the array nums such that the first k elements of nums contain the elements which are not equal to val. The remaining elements of nums are not important as well as the size of nums.
-Return k.
+Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
 
 ## 제한사항
 
-0 <= nums.length <= 100
-0 <= nums[i] <= 50
-0 <= val <= 100
+1 <= haystack.length, needle.length <= 104
+haystack and needle consist of only lowercase English characters.
 
 ## 문제 풀이
 
-이 문제도 투 포인트로 풀수 있었다 여기서 중요한 키워드는 in-place로 새로운 배열을 할당하지 않고 푸는 문제이다
-먼저 느린 포인트와 빠른 포인트를 지정한 후, val과 같지 않은 요소를 빠른 포인터로 찾을때 느린포인터를 ++해주면된다,
+이 문제는 투포인트로 쉽게 구현 할 수 있다.
+haystack의 랭스와 needle의 랭스를 뺀 만큼 반복문을 돌리는데 빼는 이유는
+needle이 haystack의 부분 문자열이 될수 있는 조건 중 마지막 까지 needle 랭스만 큼의 자리를 확보하야하기 떄문이다
+예를 들어서 needle의 length는 3인데 haystack를 탐색 중 마지막에서 2 자리까지 온다면 이미 부분 문자열을 갖고 있지 않기 떄문이다.
+또한 윈도우 슬라이딩 기법을 사용하여 한단계씩 needle의 랭스 만큼 비교했다
