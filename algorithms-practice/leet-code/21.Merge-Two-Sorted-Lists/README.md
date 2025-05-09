@@ -22,4 +22,5 @@ Both list1 and list2 are sorted in non-decreasing order.
 
 ## 문제 풀이
 
+Link list의 자료 구조는 현재 값과 이러지는 객체의 값을 가지고 있는 구조이다
 문제 풀이느 solution.js 주석으로
