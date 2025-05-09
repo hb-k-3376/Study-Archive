@@ -1,5 +1,3 @@
-# 문제 설명: Valid Parentheses
-
 ## 문제 설명
 
 Given a string s consisting of words and spaces, return the length of the last word in the string.

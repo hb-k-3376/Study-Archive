@@ -1,5 +1,3 @@
-# 문제 설명: Valid Parentheses
-
 ## 문제 설명
 
 Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.

@@ -1,5 +1,3 @@
-# 문제 설명: Valid Parentheses
-
 ## 문제 설명
 
 You are given the heads of two sorted linked lists list1 and list2.
