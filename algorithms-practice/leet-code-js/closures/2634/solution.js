@@ -3,10 +3,15 @@
  * @param {Function} fn
  * @return {number[]}
  */
-var map = function (arr, fn) {
+var filter = function (arr, fn) {
   const returnedArr = [];
+
   for (let i = 0; i < arr.length; i++) {
-    returnedArr.push(arr[i], i);
+    const isTrue = fn(arr[i], i);
+    if (isTrue) {
+      returnedArr.push(arr[i]);
+    }
   }
+
   return returnedArr;
 };
