@@ -3,7 +3,17 @@
  * @return {Function}
  */
 function memoize(fn) {
-  return function (...args) {};
+  return function (...args) {
+    const cache = {};
+    return function () {
+      const key = JSON.stringify(args);
+      if (key in cache) return cache[key];
+
+      const res = fn(...args);
+      cache[key] = res;
+      return res;
+    };
+  };
 }
 
 /**
