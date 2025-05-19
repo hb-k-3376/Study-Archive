@@ -1,22 +1,21 @@
 ## 문제 설명
 
-Given a function fn, return a memoized version of that function.
+Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie.
 
-A memoized function is a function that will never be called twice with the same inputs. Instead it will return a cached value.
-
-You can assume there are 3 possible input functions: sum, fib, and factorial.
-
-sum accepts two integers a and b and returns a + b. Assume that if a value has already been cached for the arguments (b, a) where a != b, it cannot be used for the arguments (a, b). For example, if the arguments are (3, 2) and (2, 3), two separate calls should be made.
-fib accepts a single integer n and returns 1 if n <= 1 or fib(n - 1) + fib(n - 2) otherwise.
-factorial accepts a single integer n and returns 1 if n <= 1 or factorial(n - 1) \* n otherwise.
+Each child i has a greed factor g[i], which is the minimum size of a cookie that the child will be content with; and each cookie j has a size s[j]. If s[j] >= g[i], we can assign the cookie j to the child i, and the child i will be content. Your goal is to maximize the number of your content children and output the maximum number.
 
 ## 제한사항
 
-0 <= a, b <= 105
-1 <= n <= 10
-1 <= actions.length <= 105
-actions.length === values.length
-actions[i] is one of "call" and "getCallCount"
-fnName is one of "sum", "factorial" and "fib"
+1 <= g.length <= 3 _ 104
+0 <= s.length <= 3 _ 104
+1 <= g[i], s[j] <= 231 - 1
 
 ## 문제 풀이
+
+쿠키 사이즈 배열과 아이들이 원하는 쿠키의 사이즈 배열이 있고
+아이들이 원하는 쿠키의 사이즈보다 쿠키가 크거나 같으면 아이들은 만족한다.
+쿠키는 아이 한명당 하나 씩만 가질수 있다.
+
+투포인터를 이용해서 만족스러운 쿠키를 가질 수 있는 최대의 아이가 몇명인지 구하는 문제이다.
+쿠키와 아이를 오른차순으로 정렬하고 아이와 쿠키를 매칭하여 조건 (cookie > child)을 만족하면 다음 쿠키와 아이로 넘어간다.
+만약 매칭이 안되면 다음쿠키로 넘긴다.
