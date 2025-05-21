@@ -1,38 +1,23 @@
 /**
- * @param {number[]} bills
+ * @param {string} s
  * @return {boolean}
  */
-var lemonadeChange = function (bills) {
-  if (bills[0] !== 5) return false; // 처음에 나온 지페가 5달러가 아니라면 바로 false
+var validPalindrome = function (s) {
+  const isPalindrome = (str, start, end, canDelete) => {
+    if (start >= end) return true; // 무사히 끝까지 돌았으면 True;
 
-  let five = 0; // 5달러
-  let ten = 0; // 10 달러
+    // 일치 하면 포인터을 이동해서 다시 진행
+    if (str[start] === str[end]) {
+      return isPalindrome(str, start + 1, end - 1, canDelete);
+    }
+    // 위에 로직(일치) 하지 않지만, 삭제의 기회가 있을떄
+    if (canDelete) {
+      // 앞과 , 다음 뒤 비교
+      return isPalindrome(str, start + 1, end, false) || isPalindrome(str, start, end - 1, false);
+    }
+    // 일치 하지도 않고 기회도 없을떄
+    return false;
+  };
 
-  for (const bill of bills) {
-    // 5달러를 지불할 경우
-    if (bill === 5) {
-      five++;
-    }
-    // 10달러를 지불할 경우
-    else if (bill === 10) {
-      if (five === 0) return false; // 5달러가 없으면 false
-      five--;
-      ten++;
-    }
-    // 20 달러 지페를 지불할 경우
-    else if (bill === 20) {
-      // 우선순위
-      if (ten > 0 && five > 0) {
-        ten--;
-        five--;
-      }
-      // 5달러가 3장이상 있는 경우
-      else if (five >= 3) {
-        five -= 3;
-      } else {
-        return false;
-      }
-    }
-  }
-  return true;
+  return isPalindrome(s, 0, s.length - 1, true);
 };
