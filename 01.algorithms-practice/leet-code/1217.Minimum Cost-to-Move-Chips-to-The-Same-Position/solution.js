@@ -8,8 +8,11 @@ var minCostToMoveChips = function (position) {
 
   for (const pos of position) {
     if (pos % 2 === 0) {
+      // 짝수 면
       even++;
-    } else {
+    }
+    // 홀수 면
+    else {
       odd++;
     }
   }
