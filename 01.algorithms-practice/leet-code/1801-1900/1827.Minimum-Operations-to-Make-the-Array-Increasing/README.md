@@ -33,3 +33,8 @@ time is in the format hh:mm.
 It is guaranteed that you can produce a valid time from the given string.
 
 ## 문제 풀이
+
+주어진 배열을 오름 차순으로 만들기 위한 최소한의 카운트 업을 구하는 문제이다.
+nums[i] < nums[i+1] 현재 값이 이전 값보다 +1로만 만들면 된다.
+반복문들 돌면서 현재 값과 이전값을 비교 하여 현재값이 작거나 같으면 +1이 될때 까지 1씩 카운트 업을 하면 된다.
+구현해보자
