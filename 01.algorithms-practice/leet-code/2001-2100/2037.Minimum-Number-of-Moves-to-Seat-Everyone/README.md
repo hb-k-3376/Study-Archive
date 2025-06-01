@@ -1,61 +1,48 @@
 ## 문제 설명
 
-There are n availabe seats and n students standing in a room. You are given an array seats of length n, where seats[i] is the position of the ith seat. You are also given the array students of length n, where students[j] is the position of the jth student.
+A shop is selling candies at a discount. For every two candies sold, the shop gives a third candy for free.
 
-You may perform the following move any number of times:
+The customer can choose any candy to take away for free as long as the cost of the chosen candy is less than or equal to the minimum cost of the two candies bought.
 
-Increase or decrease the position of the ith student by 1 (i.e., moving the ith student from position x to x + 1 or x - 1)
-Return the minimum number of moves required to move each student to a seat such that no two students are in the same seat.
-
-Note that there may be multiple seats or students in the same position at the beginning.
+For example, if there are 4 candies with costs 1, 2, 3, and 4, and the customer buys candies with costs 2 and 3, they can take the candy with cost 1 for free, but not the candy with cost 4.
+Given a 0-indexed integer array cost, where cost[i] denotes the cost of the ith candy, return the minimum cost of buying all the candies.
 
 ### Example 1:
 
-Input: seats = [3,1,5], students = [2,7,4]
-Output: 4
-Explanation: The students are moved as follows:
-
-- The first student is moved from position 2 to position 1 using 1 move.
-- The second student is moved from position 7 to position 5 using 2 moves.
-- The third student is moved from position 4 to position 3 using 1 move.
-  In total, 1 + 2 + 1 = 4 moves were used.
+Input: cost = [1,2,3]
+Output: 5
+Explanation: We buy the candies with costs 2 and 3, and take the candy with cost 1 for free.
+The total cost of buying all candies is 2 + 3 = 5. This is the only way we can buy the candies.
+Note that we cannot buy candies with costs 1 and 3, and then take the candy with cost 2 for free.
+The cost of the free candy has to be less than or equal to the minimum cost of the purchased candies.
 
 ### Example 2:
 
-Input: seats = [4,1,5,9], students = [1,3,2,6]
-Output: 7
-Explanation: The students are moved as follows:
+Input: cost = [6,5,7,9,2,2]
+Output: 23
+Explanation: The way in which we can get the minimum cost is described below:
 
-- The first student is not moved.
-- The second student is moved from position 3 to position 4 using 1 move.
-- The third student is moved from position 2 to position 5 using 3 moves.
-- The fourth student is moved from position 6 to position 9 using 3 moves.
-  In total, 0 + 1 + 3 + 3 = 7 moves were used.
+- Buy candies with costs 9 and 7
+- Take the candy with cost 6 for free
+- We buy candies with costs 5 and 2
+- Take the last remaining candy with cost 2 for free
+  Hence, the minimum cost to buy all candies is 9 + 7 + 5 + 2 = 23.
 
 ### Example 3:
 
-Input: seats = [2,2,6,6], students = [1,3,2,6]
-Output: 4
-Explanation: Note that there are two seats at position 2 and two seats at position 6.
-The students are moved as follows:
-
-- The first student is moved from position 1 to position 2 using 1 move.
-- The second student is moved from position 3 to position 6 using 3 moves.
-- The third student is not moved.
-- The fourth student is not moved.
-  In total, 1 + 3 + 0 + 0 = 4 moves were used.
+Input: cost = [5,5]
+Output: 10
+Explanation: Since there are only 2 candies, we buy both of them. There is not a third candy we can take for free.
+Hence, the minimum cost to buy all candies is 5 + 5 = 10.
 
 ## 제한사항
 
-n == seats.length == students.length
-1 <= n <= 100
-1 <= seats[i], students[j] <= 100
+1 <= cost.length <= 100
+1 <= cost[i] <= 100
 
 ## 문제 분석
 
-학생과 좌석이 같은 갯수를 가지고 있으며, 학생들이 으로 이동하는 최소한의 거리를 측정하는 문제이다.
-각 좌석의 위치와 학생에 위치가 주진다.
-
-학생이 좌석에 앉기 까지 최소한의 이동을 구하려면 우선 학생과 좌석을 서로 가장 가까운 위치를 매칭시켜야한다.
-
-두 배열을 같은 차순으로 정렬하면 학생들과 좌석들은 서로가 가장 가까운 곳으로 위치 하게 된다. 그후 서로의 위치에 대한 이동 절대값을 구해 더해주면 된다
+사탕을 두개를 사면 두개의 사탕중 최솟값과 같거나 낮은 사탕을 하나 무료로 받을 수 있다.
+가장 높은 사탕을 무료로 받으려면 어떻게 해야할까?
+내림차순으로 정렬을 하게 되면, 가장 비싼 순으로 사탕이 위치되어 비싼 사랑 두개를 구매하면 다음으로 비싼 사탕을 무료로 받을 수 있게 된다.
+두개를 구매하며 카운트를 업하고 한칸을 뛰고 다시 두개를 구매하는 순으로 하면 문제를 풀 수 있게 된다.
