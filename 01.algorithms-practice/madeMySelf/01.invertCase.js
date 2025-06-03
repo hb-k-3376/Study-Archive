@@ -3,6 +3,6 @@
  */
 const invertCase = (str) => {
   return Array.from(str)
-    .map((c) => (c === ' ' ? ' ' : c.toUpperCase === c ? c.toLowerCase() : c.toUpperCase()))
+    .map((c) => (c.toUpperCase() === c ? c.toLowerCase() : c.toUpperCase()))
     .join('');
 };
