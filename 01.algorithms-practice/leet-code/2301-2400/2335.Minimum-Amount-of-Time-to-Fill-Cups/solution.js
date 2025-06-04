@@ -8,7 +8,7 @@ var fillCups = function (amount) {
   let seconds = 0;
 
   // 마지막으로 남을 컵까지 전부 채워지면 반복문 종료
-  while (amount[0] > 0) {
+  while (amount[0] > 0 || amount[1] > 0 || amount[2] > 0) {
     //매 순간 가장 많은 컵과 두번쨰 컵을 찾아야함으로 내림 차순 정렬
     amount.sort((a, b) => b - a);
 
