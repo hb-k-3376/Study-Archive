@@ -6,7 +6,7 @@ var majorityElement = function (nums) {
   const hash = {};
 
   for (const num of nums) {
-    hash[num] = hash[num] === undefined ? 0 : hash[num] + 1;
+    hash[num] = (hash[num] || 0) + 1;
   }
 
   return +Object.entries(hash).sort((a, b) => b[1] - a[1])[0][0];

@@ -1,21 +1,28 @@
 ## 문제 설명
 
-Write an algorithm to determine if a number n is happy.
+Given an array nums of size n, return the majority element.
 
-A happy number is a number defined by the following process:
+The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
 
-Starting with any positive integer, replace the number by the sum of the squares of its digits.
-Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.
-Those numbers for which this process ends in 1 are happy.
-Return true if n is a happy number, and false if not.
+### Example 1:
+
+Input: nums = [3,2,3]
+Output: 3
+
+### Example 2:
+
+Input: nums = [2,2,1,1,1,2,2]
+Output: 2
 
 ## 제한사항
 
-1 <= n <= 231 - 1
+n == nums.length
+1 <= n <= 5 \* 104
+-109 <= nums[i] <= 109
 
 ## 문제 풀이
 
-happy 넘버란? number의 각 자리수를 제곱으로 더한 값이 1이 될때 까지 반복해서 1이 되면 해피 넘버라고 한다.
-예를 들어 19 > 1^2 + 9^2 = 82 , 82 => 8^2 + 2^2 = 68 이렇게 반복하다면 19는 1이 되므로 해피 넘어이다.
-이 문제눈 투포인터로 풀수 있다. 만약 해피넘버가 아니라면 무한 루프에 빠지게 되고 어느 순간 두 포인터는 같은 값을 만들게 되기에
-같은 값이 되면 이 숫자는 해피 넘버가 아니라고 생각하면 된다.
+하나의 요소가 과반수를 넘는다는 조건이 있다면 상쇄라는 개념을 사용해서 문제를 풀 수 있다.
+과반수가 될 수 도 있는 후보자를 우선 처음에 선언 한 후
+후보자를 카운트 하면 되는데 같은 수가 나오면 +1을 다른 수가 나오면 -1을 카운팅하는데
+만약에 count가 0 이하면 후보자를 변경해주면 된다,
