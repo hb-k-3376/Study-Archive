@@ -11,7 +11,7 @@ var twoSum = function (nums, target) {
     if (map.has(complement)) {
       return [map.get(complement), i];
     }
-    // 배열의 el을 맵에 저장 [ el : index ]
+    // 배열의 value를  맵에 저장 [ value : index ]
     map.set(nums[i], i);
   }
 };
