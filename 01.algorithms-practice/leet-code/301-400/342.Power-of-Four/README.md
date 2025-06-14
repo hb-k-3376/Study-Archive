@@ -1,30 +1,29 @@
-# LeetCode 326. Power of Three
+# LeetCode 342. Power of Four
 
 ## 문제 설명
 
-주어진 정수 n이 3의 거듭제곱인지 판단하는 문제입니다.
+주어진 정수 n이 4의 거듭제곱인지 판단하는 문제입니다.
 
-정수 n이 3의 거듭제곱이라는 것은 n == 3^x를 만족하는 정수 x가 존재한다는 의미입니다.
+정수 n이 4의 거듭제곱이라는 것은 n == 4^x를 만족하는 정수 x가 존재한다는 의미입니다.
 
 ### 예제
 
 **Example 1:**
 
-- Input: n = 27
+- Input: n = 16
 - Output: true
-- 설명: 27 = 3³
+- 설명: 16 = 4²
 
 **Example 2:**
 
-- Input: n = 0
+- Input: n = 5
 - Output: false
-- 설명: 3^x = 0을 만족하는 x는 존재하지 않음
 
 **Example 3:**
 
-- Input: n = -1
-- Output: false
-- 설명: 3^x = -1을 만족하는 x는 존재하지 않음
+- Input: n = 1
+- Output: true
+- 설명: 1 = 4⁰
 
 ## 제한사항
 
