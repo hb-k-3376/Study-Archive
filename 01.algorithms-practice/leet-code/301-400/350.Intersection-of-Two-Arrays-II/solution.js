@@ -14,6 +14,7 @@ var intersect = function (nums1, nums2) {
   for (const num of nums2) {
     // map에 값이 존재하고 값이 0보다 큰지 확인
     // 0 보다 큰지 확인하는 이유는? 이미 상쇄된 값일 수 있기 때문에
+    // 이미 상쇄되었다면 answer 배열에 추가할 필요가 없다
     if (map.has(num) && map.get(num) > 0) {
       answer.push(num);
       map.set(num, map.get(num) - 1);
