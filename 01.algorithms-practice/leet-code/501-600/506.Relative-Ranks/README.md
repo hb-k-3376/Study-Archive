@@ -1,0 +1,39 @@
+# LeetCode 506. Relative Ranks
+
+## 문제 설명
+
+선수들의 점수를 바탕으로 상대적 순위를 매기는 문제입니다.
+
+n명의 선수들의 점수를 나타내는 정수 배열 score가 주어집니다. 모든 점수는 고유합니다.
+
+선수들은 점수에 따라 순위가 매겨집니다. 1등 선수는 가장 높은 점수를 가지고, 2등 선수는 두 번째로 높은 점수를 가지는 식입니다. 선수들의 순위는 다음과 같이 결정됩니다:
+
+- 1등 선수의 순위는 "Gold Medal"
+- 2등 선수의 순위는 "Silver Medal"
+- 3등 선수의 순위는 "Bronze Medal"
+- 4등부터 n등까지의 선수들의 순위는 그들의 순위 번호 (즉, x등 선수의 순위는 "x")
+
+score와 같은 길이의 배열 answer를 반환해야 합니다. 여기서 answer[i]는 i번째 선수의 순위입니다.
+
+### 예제
+
+**Example 1:**
+
+- Input: score = [5,4,3,2,1]
+- Output: ["Gold Medal","Silver Medal","Bronze Medal","4","5"]
+- 설명: 순위는 [1등, 2등, 3등, 4등, 5등]입니다.
+
+**Example 2:**
+
+- Input: score = [10,3,8,9,4]
+- Output: ["Gold Medal","5","Bronze Medal","Silver Medal","4"]
+- 설명: 순위는 [1등, 5등, 3등, 2등, 4등]입니다.
+
+## 제한사항
+
+- n == score.length
+- 1 <= n <= 10^4
+- 0 <= score[i] <= 10^6
+- score의 모든 값은 고유함
+
+## 문제 풀이
