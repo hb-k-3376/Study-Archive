@@ -1,0 +1,17 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 220px;
+  height: 310px;
+}
+
+.card {
+  width: 220px;
+  height: 310px;
+  background-size: cover;
+}

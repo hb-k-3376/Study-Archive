@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <img class="card" src="https://i.pinimg.com/736x/28/ee/de/28eede9aad9d0400b509867aabe78d1b.jpg" />
+  </div>
+
+  <script>
+    const container = document.querySelector('.container');
+    container.addEventListener('mousemove', function (e) {
+      const x = e.offsetX;
+      const y = e.offsetY;
+
+      console.log(x, y);
+
+      container.style = 'transform : rotateY(20deg)';
+    })
+  </script>
+</body>
+
+</html>
