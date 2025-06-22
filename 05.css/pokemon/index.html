@@ -11,19 +11,32 @@
 
 <body>
   <div class="container">
+    <div class="overlay" />
     <img class="card" src="https://i.pinimg.com/736x/28/ee/de/28eede9aad9d0400b509867aabe78d1b.jpg" />
+
+
   </div>
 
   <script>
-    const container = document.querySelector('.container');
+    var container = document.querySelector('.container');
+    var overlay = document.querySelector('.overlay');
     container.addEventListener('mousemove', function (e) {
-      const x = e.offsetX;
-      const y = e.offsetY;
+      var x = e.offsetX;
+      var y = e.offsetY;
+      var rotateY = -1 / 5 * x + 20;
+      var rotateX = 4 / 30 * y - 20;
 
-      console.log(x, y);
+      overlay.style = `background-position : ${x / 5 + y / 5}%; filter : opacity(${x / 200}) brightness(1.2)`;
 
-      container.style = 'transform : rotateY(20deg)';
+      container.style = `transform : perspective(350px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    container.addEventListener('mouseout', function () {
+      overlay.style = 'filter : opacity(0)';
+      container.style = 'transform : perspective(350px) rotateY(0deg) rotateX(0deg)';
     })
+
+
   </script>
 </body>
 
