@@ -1,0 +1,11 @@
+.callback-box {
+  width: 100px;
+  height: 100px;
+  background: #1abc9c;
+  margin: 20px;
+}
+#status {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px;
+}

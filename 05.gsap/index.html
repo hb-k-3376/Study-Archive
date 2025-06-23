@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gsap</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+</head>
+
+<body>
+  <script>
+    function animateWithCallbacks() {
+      gsap.to(".callback-box", {
+        duration: 3,
+        x: 250,
+        rotation: 720,
+        scale: 1.5,
+        onStart: () => {
+          document.getElementById('status').textContent = "애니메이션 시작!";
+          console.log("시작!");
+        },
+        onUpdate: function () {
+          const progress = Math.round(this.progress() * 100);
+          document.getElementById('status').textContent = `진행중... ${progress}%`;
+        },
+        onComplete: () => {
+          document.getElementById('status').textContent = "완료!";
+          console.log("완료!");
+        }
+      });
+    }
+  </script>
+  <div class="callback-box"></div>
+  <button onclick="animateWithCallbacks()">콜백 테스트</button>
+  <div id="status">대기중...</div>
+
+</body>
+
+</html>
