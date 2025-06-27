@@ -1,38 +1,31 @@
 /**
- * Definition for isBadVersion()
- *
- * @param {integer} version number
- * @return {boolean} whether the version is bad
- * isBadVersion = function(version) {
- *     ...
- * };
+ * Forward declaration of guess API.
+ * @param {number} num   your guess
+ * @return 	     -1 if num is higher than the picked number
+ *			      1 if num is lower than the picked number
+ *               otherwise return 0
+ * var guess = function(num) {}
  */
 
 /**
- * @param {function} isBadVersion()
- * @return {function}
+ * @param {number} n
+ * @return {number}
  */
-var solution = function (isBadVersion) {
-  /**
-   * @param {integer} n Total versions
-   * @return {integer} The first bad version
-   */
-  return function (n) {
-    let left = 1;
-    let right = n;
+var guessNumber = function (n) {
+  let left = 1;
+  let right = n;
 
-    while (left < right) {
-      let mid = Math.floor((left + right) / 2);
-      // 중간 값이 bad 면
-      if (isBadVersion(mid)) {
-        right = mid;
-      }
-      // good 이면
-      else {
-        left = mid + 1;
-      }
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+
+    const result = guess(mid);
+
+    if (result === 1) {
+      right = mid - 1;
+    } else if (result === -1) {
+      left = mid + 1;
+    } else if (result === 0) {
+      return mid;
     }
-
-    return left;
-  };
+  }
 };
