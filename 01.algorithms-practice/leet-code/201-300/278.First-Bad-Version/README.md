@@ -1,48 +1,40 @@
-# LeetCode 374. Guess Number Higher or Lower
+# LeetCode 278. First Bad VersionAdd commentMore actions
 
 ## 문제 설명
 
-숫자 맞히기 게임 문제입니다.
+버전 관리 시스템에서 첫 번째 잘못된 버전을 찾는 문제입니다.
 
-나는 1부터 n 사이의 숫자를 선택합니다. 당신은 내가 선택한 숫자를 맞혀야 합니다.
+당신은 제품 관리자이고 팀을 이끌고 새로운 제품을 개발하고 있습니다. 불행히도 최신 버전이 품질 검사를 통과하지 못했습니다. n개의 버전 [1, 2, ..., n]이 있고, 어떤 잘못된 버전으로 인해 그 이후의 모든 버전들이 잘못되었다는 것을 알아냈습니다.
 
-당신이 틀린 숫자를 추측할 때마다, 나는 내가 선택한 숫자가 당신의 추측보다 높은지 낮은지 알려줍니다.
+첫 번째 잘못된 버전을 찾아야 하는데, 이는 그 이후의 모든 버전들이 잘못되게 만든 원인이 됩니다.
 
-당신은 미리 정의된 API `int guess(int num)`을 호출할 수 있습니다. 이 API는 다음 3가지 결과 중 하나를 반환합니다:
-
--1: Your guess is higher than the number I picked (i.e. num > pick).
-1: Your guess is lower than the number I picked (i.e. num < pick).
-0: your guess is equal to the number I picked (i.e. num == pick).
-
-내가 선택한 숫자를 반환하세요.
+`bool isBadVersion(version)` API가 제공되어 버전이 잘못되었는지 확인할 수 있습니다. 첫 번째 잘못된 버전을 찾는 함수를 구현하세요. API 호출 횟수를 최소화해야 합니다.
 
 ### 예제
 
 **Example 1:**
 
-- Input: n = 10, pick = 6
-- Output: 6
+- Input: n = 5, bad = 4
+- Output: 4
+- 설명:
+- isBadVersion(3) → false
+- isBadVersion(5) → true
+- isBadVersion(4) → true
+- 따라서 4가 첫 번째 잘못된 버전입니다.
 
 **Example 2:**
 
-- Input: n = 1, pick = 1
-- Output: 1
-
-**Example 3:**
-
-- Input: n = 2, pick = 1
+- Input: n = 1, bad = 1
 - Output: 1
 
 ## 제한사항
 
-- 1 <= n <= 2^31 - 1
-- 1 <= pick <= n
+- 1 <= bad <= n <= 2^31 - 1
 
 ## 문제 풀이
 
-이진 탐색으로 문제를 풀면 된다.
-이진 탐색이란? 양쪽 끝을 포인터로 잡고 양끝의 중간 값을 구한다음 도출해여하는 값 보다 큰지 작은지를 판단하여
-중간값이 더 크다면? 왼쪽에 답이 있기 땨문에 오른쪽 포인터를 중간값 -1 로 옮기며 중간값이 더 작다면? 오른쪽에 답이 있음으로 왼쪽 포인터를 중간값 +1로 옮기는 작업을 반복하다 보면 어느순간 값을 찾게 된다. 만약 답이 없다면? left값이 right 값보다 커지는 순간 반복문을 종료하고 값이 없다고 알림하면 된다. 값이 있다면 반복문이 도는 중에 무조건 결과를 반환하게 된다.
-
-경계: right = mid (mid 포함)
-값: right = mid - 1 (mid 제외)
+이진 검색을 사용하면 쉽게 사용할 수 있다.
+left 값을 1로 right 값을 n으로 선언 후 중간 값을 갱신하며
+가장 첫번째 bad 버전을 탐색하면 되는데, left === right이 될깨 까지 반복문을 돌리면 된다.
+중간 값이 bad 값이라면? 첫 번째 bad 값은 mid 값 이하에 존재하고 good이라면? mid 값 이후에 존재하게 된다.
+그래서 left === right 값이 같아 지는 순간 이 첫 번째 bad가 된다.
