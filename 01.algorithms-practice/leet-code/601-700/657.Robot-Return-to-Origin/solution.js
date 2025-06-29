@@ -21,10 +21,10 @@ var judgeCircle = function (moves) {
   for (const move of moves) {
     switch (move) {
       case 'U':
-        y -= 1;
+        y += 1;
         break;
       case 'D':
-        y += 1;
+        y -= 1;
         break;
       case 'R':
         x += 1;
