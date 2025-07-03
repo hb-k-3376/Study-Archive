@@ -23,7 +23,9 @@ MyHashMap.prototype.get = function (key) {
  * @param {number} key
  * @return {void}
  */
-MyHashMap.prototype.remove = function (key) {};
+MyHashMap.prototype.remove = function (key) {
+  delete this.map[key];
+};
 
 /**
  * Your MyHashMap object will be instantiated and called as such:
