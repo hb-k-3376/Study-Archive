@@ -62,7 +62,7 @@ var 최적화 = function (licensePlate, words) {
   for (const word of words) {
     const check = new Map();
     let isMatched = true;
-    if (minLength > check.length) {
+    if (minLength > word.length) {
       for (const c of word) {
         const lowerChar = c.toLowerCase();
         if (map.has(lowerChar)) {
@@ -70,8 +70,8 @@ var 최적화 = function (licensePlate, words) {
         }
       }
 
-      for (const [key, value] of check) {
-        if (map.get(key) !== value) {
+      for (const [key, value] of map) {
+        if ((check.get(key) ?? 0) > value) {
           isMatched = false;
           break;
         }
