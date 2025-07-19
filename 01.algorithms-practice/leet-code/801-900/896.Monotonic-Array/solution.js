@@ -7,18 +7,18 @@ var isMonotonic = function (nums) {
 
   for (let i = 0; i < nums.length - 1; i++) {
     const front = nums[i];
-    const rare = nums[i + 1];
+    const rear = nums[i + 1];
 
-    if (front === rare) continue;
+    if (front === rear) continue;
 
     if (isIncrease === 0) {
-      isIncrease = front < rare ? 1 : -1;
+      isIncrease = front < rear ? 1 : -1;
       continue;
     }
 
     if (
-      (isIncrease === -1 && front < rare) ||
-      (isIncrease === 1 && front > rare)
+      (isIncrease === -1 && front < rear) ||
+      (isIncrease === 1 && front > rear)
     ) {
       return false;
     }
