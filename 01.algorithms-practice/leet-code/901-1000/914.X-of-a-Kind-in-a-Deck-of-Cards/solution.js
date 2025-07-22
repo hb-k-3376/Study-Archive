@@ -9,12 +9,14 @@ var hasGroupsSizeX = function (deck) {
     map.set(card, (map.get(card) ?? 0) + 1);
   }
 
-  const min = Math.min(...map.values());
+  const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
 
-  if (min === 1) return false;
+  const counts = [...map.values()];
+  let result = counts[0];
 
-  for (const [_, value] of map.entries()) {
-    if (value % min !== 0) return false;
+  for (let i = 1; i < counts.length; i++) {
+    result = gcd(result, counts[i]);
   }
-  return true;
+
+  return result >= 2;
 };
