@@ -16,7 +16,8 @@ var hasGroupsSizeX = function (deck) {
 
   for (let i = 1; i < counts.length; i++) {
     result = gcd(result, counts[i]);
+    if (result === 1) return false;
   }
 
-  return result >= 2;
+  return true;
 };
